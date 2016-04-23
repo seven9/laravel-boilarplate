@@ -13,10 +13,12 @@ class FrontendController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+
     public function index()
-    {
+    {   
+        $users = \App\Models\Access\User\User::all();
         javascript()->put([
-            'test' => 'it works!',
+            'test' => $users,
         ]);
 
         return view('frontend.index');
